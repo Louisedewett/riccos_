@@ -1,0 +1,620 @@
+:root {
+  --havremaelk: #ebdacf;
+  --kaffe: #2e221d;
+  --pumpkin-spice: #f74400;
+  --cappuccino: #735348;
+
+  --font-heading: "Source Sans 3", "Source Sans Pro", sans-serif;
+  --font-handwriting: "Kalam", cursive;
+  --font-body: "Roboto", sans-serif;
+
+  /* Grid system */
+  --grid-max-width: 1440px;
+  --grid-margin: 5%;
+  --grid-gap: 24px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--havremaelk);
+  color: var(--kaffe);
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.75rem; /* 12px Mobile Base Body */
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* Fælles centreret container til 12-kolonners grid */
+.container {
+  width: 100%;
+  max-width: var(--grid-max-width);
+  margin: 0 auto;
+  padding-left: var(--grid-margin);
+  padding-right: var(--grid-margin);
+}
+
+/* ==========================================
+   TYPE SCALE - MOBILE FIRST (Figma)
+   ========================================== */
+.display-large {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 1.2;
+}
+
+h1 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 2rem; /* 32px Mobile H1 */
+  line-height: 1.3;
+}
+
+h2 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.5rem; /* 24px Mobile H2 */
+  line-height: 1.35;
+}
+
+h3 {
+  font-family: var(--font-heading);
+  font-weight: 300; /* Source Sans Pro Light */
+  font-size: 1.125rem; /* 18px Mobile H3 */
+  line-height: 1.4;
+}
+
+h4 {
+  font-family: var(--font-handwriting);
+  font-weight: 400;
+  font-size: 1rem; /* 16px Mobile H4 */
+  line-height: 1.5;
+}
+
+p {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.75rem; /* 12px Mobile Body */
+  line-height: 1.5;
+}
+
+.body-small {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+/* ==========================================
+   FÆLLES KNAP (MOBILE FIRST)
+   ========================================== */
+.cta-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 165px;
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--kaffe);
+  text-decoration: none;
+  background-color: var(--havremaelk);
+  border: 1px solid var(--havremaelk);
+  padding: 14px 24px;
+  text-align: center;
+  overflow: hidden;
+  z-index: 1;
+  transition:
+    color 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+    border-color 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.cta-btn svg {
+  display: block;
+  flex-shrink: 0;
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.cta-btn:hover svg {
+  transform: translateX(4px);
+}
+
+.cta-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--pumpkin-spice);
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.cta-btn:hover {
+  color: var(--havremaelk);
+  border-color: var(--pumpkin-spice);
+}
+
+.cta-btn:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.cta-btn-outline {
+  background-color: transparent;
+  border-color: var(--kaffe);
+}
+
+/* ==========================================
+   FÆLLES NAVBAR / MENU (MOBILE FIRST)
+   ========================================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 18px 5%;
+  color: var(--havremaelk);
+  background-color: transparent;
+  transition:
+    color 0.35s ease,
+    padding 0.35s ease;
+}
+
+.navbar.scrolled {
+  background-color: transparent;
+  color: var(--kaffe);
+  padding: 14px 5%;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+}
+
+.logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  z-index: 1002;
+}
+
+.logo-img {
+  height: 42px;
+  width: auto;
+  display: block;
+  transition: filter 0.35s ease;
+}
+
+/* Skifter logoet fra havremælk til kaffe (#2E221D) */
+.navbar.scrolled .logo-img {
+  filter: brightness(0) saturate(100%) invert(11%) sepia(14%) saturate(1038%) hue-rotate(334deg) brightness(95%) contrast(91%);
+}
+
+/* Mobil dropdown-boks */
+.nav-links {
+  position: absolute;
+  top: calc(100% + 16px);
+  left: 0;
+  width: 100%;
+  background-color: var(--havremaelk);
+  box-shadow: 0 8px 20px rgba(46, 34, 29, 0.16);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 36px 32px;
+  gap: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    visibility 0.3s ease;
+  z-index: 1001;
+}
+
+.nav-links.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.nav-links a {
+  color: var(--kaffe);
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  transition: opacity 0.2s ease;
+}
+
+.nav-links a:hover {
+  opacity: 0.7;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  z-index: 1002;
+}
+
+/* Burgermenu */
+.burger-menu {
+  background: none;
+  border: none;
+  color: var(--havremaelk);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding: 4px;
+  width: 30px;
+  height: 30px;
+  transition: color 0.35s ease;
+}
+
+.navbar.scrolled .burger-menu {
+  color: var(--kaffe);
+}
+
+.burger-menu span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease,
+    background-color 0.35s ease;
+}
+
+.burger-menu.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.burger-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Søgebar */
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-input {
+  width: 0;
+  opacity: 0;
+  padding: 7px 0;
+  border: 1.5px solid transparent;
+  background-color: transparent;
+  color: currentColor;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 0;
+  outline: none;
+  pointer-events: none;
+  transition:
+    width 0.3s ease,
+    opacity 0.25s ease,
+    padding 0.3s ease,
+    border-color 0.35s ease,
+    color 0.35s ease;
+}
+
+.search-input::placeholder {
+  color: currentColor;
+  opacity: 1;
+  transition: color 0.35s ease;
+}
+
+.search-wrapper.active .search-input {
+  width: 135px;
+  opacity: 1;
+  padding: 7px 12px;
+  border-color: currentColor;
+  pointer-events: auto;
+}
+
+.search-btn {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  transition: opacity 0.2s ease;
+}
+
+.search-btn:hover {
+  opacity: 0.7;
+}
+
+/* ==========================================
+   FÆLLES FOOTER (MOBILE FIRST)
+   ========================================== */
+.footer {
+  background-color: var(--kaffe);
+  color: var(--havremaelk);
+  padding: 40px 5% 28px 5%;
+}
+
+.footer-inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.footer-info,
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-info p,
+.footer-social p,
+.footer-link {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--havremaelk);
+  margin: 0;
+}
+
+.footer-link {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: opacity 0.2s ease;
+}
+
+.footer-link:hover {
+  opacity: 0.7;
+}
+
+.footer-foedevare {
+  margin-top: 18px;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.footer-logo {
+  height: 44px;
+  width: auto;
+  display: block;
+}
+
+.footer-sign {
+  height: 46px;
+  width: auto;
+  display: block;
+}
+
+.footer-copy {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.85rem;
+  color: var(--havremaelk);
+  margin: 0;
+}
+
+/* ==========================================
+   DESKTOP (min-width: 768px)
+   ========================================== */
+@media (min-width: 768px) {
+  :root {
+    --grid-margin: 4.5%;
+    --grid-gap: 24px;
+  }
+
+  body {
+    font-size: 1rem; /* 16px Desktop Base Body */
+  }
+
+  .display-large {
+    font-size: 6rem; /* 96px Desktop Display Large */
+    line-height: 1.33;
+  }
+
+  h1 {
+    font-size: 4rem; /* 64px Desktop H1 */
+    line-height: 1.25;
+  }
+
+  h2 {
+    font-size: 2rem; /* 32px Desktop H2 */
+    line-height: 1.35;
+  }
+
+  h3 {
+    font-size: 1.5rem; /* 24px Desktop H3 */
+    line-height: 1.4;
+  }
+
+  h4 {
+    font-size: 1.25rem; /* 20px Desktop H4 */
+    line-height: 1.4;
+  }
+
+  p {
+    font-size: 1rem; /* 16px Desktop Body */
+    line-height: 1.5;
+  }
+
+  .body-small {
+    font-size: 0.875rem; /* 14px Desktop Body Small */
+    line-height: 1.43;
+  }
+
+  /* Fælles Knap Desktop */
+  .cta-btn {
+    min-width: 195px;
+    font-size: 0.95rem;
+    padding: 16px 30px;
+  }
+
+  /* Fælles Navbar Desktop */
+  .navbar {
+    padding: 22px 2.5%;
+  }
+
+  .navbar.scrolled {
+    padding: 15px 2.5%;
+  }
+
+  .nav-container {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+  }
+
+  .logo {
+    justify-self: start;
+  }
+
+  .logo-img {
+    height: 62px;
+  }
+
+  .burger-menu {
+    display: none;
+  }
+
+  .nav-links {
+    position: static;
+    width: auto;
+    background-color: transparent;
+    box-shadow: none;
+    justify-self: center;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    gap: 28px;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .nav-links a {
+    color: inherit;
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+  }
+
+  .nav-actions {
+    justify-self: end;
+    gap: 0;
+  }
+
+  .search-wrapper {
+    gap: 12px;
+  }
+
+  .search-input {
+    padding: 10px 0;
+    font-size: 0.95rem;
+  }
+
+  .search-wrapper.active .search-input {
+    width: 260px;
+    padding: 10px 16px;
+  }
+
+  /* Fælles Footer Desktop */
+  .footer {
+    padding: 44px 2.5% 36px 2.5%;
+  }
+
+  .footer-inner {
+    gap: 12px;
+  }
+
+  .footer-info p,
+  .footer-social p,
+  .footer-link {
+    font-size: 1rem;
+  }
+
+  .footer-foedevare {
+    margin-top: 22px;
+  }
+
+  .footer-bottom {
+    position: relative;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .footer-brand {
+    gap: 18px;
+  }
+
+  .footer-logo {
+    height: 60px;
+  }
+
+  .footer-sign {
+    height: 62px;
+  }
+
+  .footer-copy {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    font-size: 0.9rem;
+  }
+}
