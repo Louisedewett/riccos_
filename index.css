@@ -1,1 +1,697 @@
+/* ==========================================
+   MOBILE FIRST BASE - FORSIDE SEKTIONER
+   ========================================== */
 
+/* --- HERO SEKTION --- */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  min-height: 580px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.hero-media {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.45) 100%);
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  padding-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: stretch;
+}
+
+.hero-text {
+  text-align: left;
+  align-self: flex-start;
+  margin-bottom: 56px;
+}
+
+.hero-text h2 {
+  color: var(--havremaelk);
+  line-height: 1.35;
+}
+
+.hero-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.scroll-arrow {
+  position: relative;
+  color: var(--havremaelk);
+  text-decoration: none;
+  display: inline-grid;
+  place-items: center;
+  min-width: 120px;
+  height: 26px;
+  cursor: pointer;
+}
+
+.scroll-text,
+.scroll-arrow svg {
+  grid-area: 1 / 1;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.scroll-text {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(4px);
+}
+
+.scroll-arrow:hover .scroll-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-arrow:hover svg {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+
+/* ==========================================
+   MÆRK RICCOS / KARRUSEL (MOBILE FIRST)
+   ========================================== */
+.about-section {
+  padding: 100px 0;
+  background-color: var(--havremaelk);
+  overflow: hidden;
+}
+
+.about-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 44px;
+}
+
+.about-content {
+  text-align: center;
+  max-width: 280px;
+}
+
+.about-content h2 {
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  color: var(--kaffe);
+}
+
+.about-content p {
+  color: var(--kaffe);
+  margin-bottom: 16px;
+}
+
+.about-content p:last-child {
+  margin-bottom: 0;
+}
+
+.carousel-wrapper {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: smoothScroll 28s linear infinite;
+}
+
+.carousel-track img {
+  width: 240px;
+  height: 310px;
+  object-fit: cover;
+  flex-shrink: 0;
+  display: block;
+}
+
+@keyframes smoothScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 8px));
+  }
+}
+
+.carousel-wrapper:hover .carousel-track {
+  animation-play-state: paused;
+}
+
+/* ==========================================
+   CAFÉ LOKATIONER - 3 CARDS (MOBILE FIRST)
+   ========================================== */
+.locations-section {
+  padding: 0 0 100px 0;
+  background-color: var(--havremaelk);
+}
+
+.locations-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.locations-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.location-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 195px;
+  height: 255px;
+  background-color: var(--cappuccino);
+  color: var(--havremaelk);
+  text-decoration: none;
+  border-radius: 0 55px 0 55px;
+  overflow: hidden;
+}
+
+.location-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition:
+    opacity 0.45s ease,
+    transform 0.55s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 2;
+}
+
+.location-info {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  padding: 0 14px;
+  transition: opacity 0.35s ease;
+}
+
+.location-info h2 {
+  color: var(--havremaelk);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-size: 1.25rem;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.location-address {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1.2;
+  color: var(--havremaelk);
+  margin: 0;
+}
+
+.location-card:hover .location-img {
+  opacity: 1;
+  transform: scale(1.03);
+}
+
+.location-card:hover .location-info {
+  opacity: 0;
+}
+
+.locations-footer {
+  max-width: 310px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.locations-footer p {
+  color: var(--kaffe);
+  text-align: left;
+}
+
+/* ==========================================
+   KLIMA VIDEO SEKTION (MOBILE FIRST)
+   ========================================== */
+.klima-section {
+  position: relative;
+  width: 100%;
+  min-height: 440px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.klima-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.klima-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+  z-index: 2;
+}
+
+.klima-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.klima-content p {
+  color: var(--havremaelk);
+  max-width: 310px;
+  text-align: left;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+}
+
+/* ==========================================
+   RICCOS KAFFEVARIANTER - 4 CARDS (MOBILE FIRST)
+   ========================================== */
+.variants-section {
+  background-color: var(--cappuccino);
+  margin-top: 100px;
+  padding: 70px 0 80px 0;
+  overflow: hidden;
+}
+
+.variants-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.variants-container h2 {
+  color: var(--havremaelk);
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.03em;
+  margin-bottom: 44px;
+}
+
+.variants-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 360px;
+  margin-bottom: 44px;
+}
+
+.variant-card {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  z-index: 1;
+}
+
+.variant-bag {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: block;
+  z-index: 2;
+}
+
+/* Ingen splash-effekt på mobil */
+.variant-splash {
+  display: none;
+}
+
+.variants-footer {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 3;
+}
+
+/* ==========================================
+   INSTAGRAM HIGHLIGHTS (MOBILE FIRST)
+   ========================================== */
+.insta-section {
+  background-color: var(--havremaelk);
+  padding: 100px 0;
+}
+
+.insta-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.insta-container h2 {
+  color: var(--kaffe);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.insta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  width: 100%;
+  max-width: 360px;
+}
+
+.insta-card {
+  position: relative;
+  display: block;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.insta-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Hover-boks skjult på mobil — klik på selve billedet åbner Instagram */
+.insta-hover-bar {
+  display: none;
+}
+
+/* ==========================================
+   DESKTOP (min-width: 768px) - 12-KOLONNERS GRID
+   ========================================== */
+@media (min-width: 768px) {
+  /* Hero på 12-kolonners grid */
+  .hero-content {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: var(--grid-gap);
+    align-content: end;
+    align-items: stretch;
+    padding-bottom: 35px;
+  }
+
+  .hero-text {
+    grid-column: 1 / 7;
+    text-align: left;
+    margin-bottom: 110px;
+  }
+
+  .hero-bottom {
+    grid-column: 1 / -1;
+    justify-self: center;
+    gap: 24px;
+  }
+
+  .scroll-arrow {
+    min-width: 130px;
+    height: 28px;
+  }
+
+  .scroll-text {
+    font-size: 0.9rem;
+  }
+
+  /* Mærk Riccos på 12-kolonners grid — 160px afstand til nabo-sektioner */
+  .about-section {
+    padding: 160px 0;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: var(--grid-gap);
+    align-items: center;
+  }
+
+  .about-content {
+    grid-column: 1 / 4;
+    text-align: left;
+    max-width: 100%;
+  }
+
+  .carousel-wrapper {
+    grid-column: 5 / 13;
+    width: calc(100% + ((100vw - 100%) / 2));
+    margin-left: 0;
+  }
+
+  .carousel-track img {
+    width: 320px;
+    height: 430px;
+  }
+
+  /* Café Lokationer på 12-kolonners grid — 160px afstand til klima-sektionen */
+  .locations-section {
+    padding: 0 0 160px 0;
+  }
+
+  .locations-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: var(--grid-gap);
+  }
+
+  .locations-grid {
+    grid-column: 2 / 12;
+    flex-direction: row;
+    justify-content: center;
+    gap: 32px;
+    width: 100%;
+    margin-bottom: 64px;
+  }
+
+  .location-card {
+    width: 300px;
+    max-width: 300px;
+    height: 415px;
+    flex-shrink: 0;
+    border-radius: 0 85px 0 85px;
+  }
+
+  .location-info {
+    gap: 10px;
+    padding: 0 20px;
+  }
+
+  .location-info h2 {
+    font-size: 2rem;
+  }
+
+  .location-address {
+    font-size: 1.25rem;
+  }
+
+  .locations-footer {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 540px;
+    gap: 40px;
+  }
+
+  /* Klima Video Desktop */
+  .klima-section {
+    min-height: 620px;
+  }
+
+  .klima-content {
+    gap: 36px;
+  }
+
+  .klima-content p {
+    max-width: 540px;
+  }
+
+  /* Riccos Kaffevarianter Desktop — 160px afstand til klima-sektionen */
+  .variants-section {
+    margin-top: 160px;
+    padding: 90px 0 110px 0;
+  }
+
+  .variants-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: var(--grid-gap);
+  }
+
+  .variants-container h2 {
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin-bottom: 64px;
+    position: relative;
+    z-index: 3;
+  }
+
+  .variants-grid {
+    grid-column: 2 / 12;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    max-width: 100%;
+    margin-bottom: 64px;
+  }
+
+  .variant-card:hover {
+    z-index: 10;
+  }
+
+  .variant-bag {
+    transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .variant-splash {
+    display: block;
+    position: absolute;
+    top: -24%;
+    left: 50%;
+    width: 185%;
+    max-width: none;
+    height: auto;
+    transform: translateX(-50%) scale(0.78);
+    transform-origin: center bottom;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+    transition:
+      opacity 0.4s ease,
+      transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .variant-card:hover .variant-bag {
+    transform: translateY(-6px);
+  }
+
+  .variant-card:hover .variant-splash {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+
+  .variants-footer {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+
+  /* Instagram Highlights Desktop — 12-kolonners grid + 160px spacing + hover */
+  .insta-section {
+    padding: 160px 0;
+  }
+
+  .insta-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: var(--grid-gap);
+  }
+
+  .insta-container h2 {
+    grid-column: 2 / 12;
+    text-align: left;
+    margin-bottom: 36px;
+  }
+
+  .insta-grid {
+    grid-column: 2 / 12;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 100%;
+  }
+
+  .insta-img {
+    transition: transform 0.55s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .insta-hover-bar {
+    display: flex;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--cappuccino);
+    color: var(--havremaelk);
+    padding: 18px 20px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    transform: translateY(100%);
+    transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 2;
+  }
+
+  .insta-handle {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--havremaelk);
+  }
+
+  .insta-link {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--havremaelk);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    white-space: nowrap;
+  }
+
+  .insta-card:hover .insta-hover-bar,
+  .insta-card:focus-visible .insta-hover-bar {
+    transform: translateY(0);
+  }
+
+  .insta-card:hover .insta-img {
+    transform: scale(1.03);
+  }
+}

@@ -1,14 +1,307 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riccos Kaffe</title>
+    <link rel="icon" type="image/svg+xml" href="grafik_/favicon.svg">
+
+    <!-- Google Fonts: Source Sans 3 (Light, SemiBold, Bold), Kalam og Roboto Light -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Roboto:wght@300;400;500&family=Source+Sans+3:wght@300;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="general.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
 
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo" aria-label="Riccos Kaffe">
+                <img src="grafik_/logo_creme.svg" alt="Riccos Kaffe" class="logo-img">
+            </a>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="#">KAFFEBARER</a>
+                <a href="#">KAFFE</a>
+                <a href="#">JOB</a>
+                <a href="#">KLIMA</a>
+                <a href="#">KONTAKT</a>
+            </nav>
+
+            <div class="nav-actions">
+                <div class="search-wrapper" id="searchWrapper">
+                    <input type="text" class="search-input" id="searchInput" placeholder="Søg..." aria-label="Søg">
+                    <button class="search-btn" id="searchBtn" type="button" aria-label="Åbn søgefelt">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Burgermenu knap (kun synlig på mobil) -->
+                <button class="burger-menu" id="burgerMenu" type="button" aria-label="Åbn menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="hero">
+            <video autoplay muted loop playsinline class="hero-media">
+                <source src="hero.mp4" type="video/mp4">
+                Din browser understøtter ikke video-tagget.
+            </video>
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content container">
+                <div class="hero-text">
+                    <h2>Riccos er en simpel tanke.<br>God kaffe som afsæt for et godt øjeblik.</h2>
+                </div>
+
+                <div class="hero-bottom">
+                    <a href="#" class="cta-btn">
+                        <span>Find din Riccos</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <line x1="4" y1="12" x2="20" y2="12"></line>
+                            <polyline points="14 6 20 12 14 18"></polyline>
+                        </svg>
+                    </a>
+                    <a href="#maerk-riccos" class="scroll-arrow" aria-label="Scroll ned">
+                        <span class="scroll-text">SCROLL DOWN</span>
+                        <svg width="32" height="18" viewBox="0 0 32 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2 2L16 16L30 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- MÆRK RICCOS + KARRUSEL -->
+        <section class="about-section" id="maerk-riccos">
+            <div class="about-grid container">
+                <div class="about-content">
+                    <h2>MÆRK RICCOS</h2>
+                    <p>Kaffen er ikke en religion eller en videnskab eller en livsstil, men en pause uden støj, som er
+                        simpel, ren og ukompliceret.</p>
+                    <p>Nyd den.</p>
+                </div>
+
+                <div class="carousel-wrapper">
+                    <div class="carousel-track">
+                        <!-- Sæt 1 -->
+                        <img src="img_/karusel1.webp" alt="Riccos stemning 1">
+                        <img src="img_/karusel2.webp" alt="Riccos stemning 2">
+                        <img src="img_/karusel3.webp" alt="Riccos stemning 3">
+                        <img src="img_/karusel4.webp" alt="Riccos stemning 4">
+                        <img src="img_/karusel5.webp" alt="Riccos stemning 5">
+                        <!-- Sæt 2 (til uendelig glidende karrusel) -->
+                        <img src="img_/karusel1.webp" alt="" aria-hidden="true">
+                        <img src="img_/karusel2.webp" alt="" aria-hidden="true">
+                        <img src="img_/karusel3.webp" alt="" aria-hidden="true">
+                        <img src="img_/karusel4.webp" alt="" aria-hidden="true">
+                        <img src="img_/karusel5.webp" alt="" aria-hidden="true">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CAFÉ LOKATIONER (3 CARDS) -->
+        <section class="locations-section">
+            <div class="locations-container container">
+                <div class="locations-grid">
+                    <a href="#" class="location-card">
+                        <img src="img_/valby.webp" alt="Riccos Valby - Valby Langgade 66" class="location-img">
+                        <div class="location-info">
+                            <h2>VALBY</h2>
+                            <p class="location-address">Valby langgade 66</p>
+                        </div>
+                    </a>
+
+                    <a href="#" class="location-card">
+                        <img src="img_/vesterbro.webp" alt="Riccos Vesterbro - Istedgade 119" class="location-img">
+                        <div class="location-info">
+                            <h2>VESTERBRO</h2>
+                            <p class="location-address">Istedgade 119</p>
+                        </div>
+                    </a>
+
+                    <a href="#" class="location-card">
+                        <img src="img_/nørrebro.webp" alt="Riccos Nørrebro - Stefansgade 15" class="location-img">
+                        <div class="location-info">
+                            <h2>NØRREBRO</h2>
+                            <p class="location-address">Stefansgade 15</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="locations-footer">
+                    <p>Hos Riccos finder du ni hyggelige caféer fordelt rundt på Sjælland. Hver café har sin egen charme
+                        og atmosfære, men fælles for dem alle er kærligheden til god kaffe og hyggelige øjeblikke.</p>
+                    <a href="#" class="cta-btn cta-btn-outline">
+                        <span>Find din Riccos</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <line x1="4" y1="12" x2="20" y2="12"></line>
+                            <polyline points="14 6 20 12 14 18"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- KLIMA VIDEO SEKTION -->
+        <section class="klima-section">
+            <video autoplay muted loop playsinline class="klima-media">
+                <source src="klima.mp4" type="video/mp4">
+                Din browser understøtter ikke video-tagget.
+            </video>
+            <div class="klima-overlay"></div>
+
+            <div class="klima-content container">
+                <p>Hos Ricco's vælger vi ansvarlige råvarer og leverandører og driver vores egen kaffefarm i Mexico med
+                    fokus på bæredygtighed.</p>
+                <a href="#" class="cta-btn">
+                    <span>Grønnere kaffe</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="4" y1="12" x2="20" y2="12"></line>
+                        <polyline points="14 6 20 12 14 18"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- RICCOS KAFFEVARIANTER (4 CARDS MED SPLASH SVG HOVER) -->
+        <section class="variants-section">
+            <div class="variants-container container">
+                <h2>RICCOS KAFFEVARIANTER</h2>
+
+                <div class="variants-grid">
+                    <a href="#" class="variant-card">
+                        <img src="grafik_/Splash01.svg" alt="" class="variant-splash" aria-hidden="true">
+                        <img src="img_/hvidkaffe.webp" alt="White Magic - Costa Rica" class="variant-bag">
+                    </a>
+
+                    <a href="#" class="variant-card">
+                        <img src="grafik_/Splash02.svg" alt="" class="variant-splash" aria-hidden="true">
+                        <img src="img_/grønkaffe.webp" alt="Bitches Brew - Etiopien" class="variant-bag">
+                    </a>
+
+                    <a href="#" class="variant-card">
+                        <img src="grafik_/Splash03.svg" alt="" class="variant-splash" aria-hidden="true">
+                        <img src="img_/orangekaffe.webp" alt="Orangu Tang - Guatemala" class="variant-bag">
+                    </a>
+
+                    <a href="#" class="variant-card">
+                        <img src="grafik_/Splash04.svg" alt="" class="variant-splash" aria-hidden="true">
+                        <img src="img_/sortkaffe.webp" alt="Black Death - Dolce" class="variant-bag">
+                    </a>
+                </div>
+
+                <div class="variants-footer">
+                    <a href="#" class="cta-btn">
+                        <span>Kaffe</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <line x1="4" y1="12" x2="20" y2="12"></line>
+                            <polyline points="14 6 20 12 14 18"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- INSTAGRAM HIGHLIGHTS -->
+        <section class="insta-section">
+            <div class="insta-container container">
+                <h2>INSTAGRAM HIGHLIGHTS</h2>
+
+                <div class="insta-grid">
+                    <a href="https://www.instagram.com/p/B7qV35-B1Cx/" target="_blank" rel="noopener noreferrer"
+                        class="insta-card">
+                        <img src="img_/insta1.webp" alt="Riccos Kaffe Instagram opslag 1" class="insta-img">
+                        <div class="insta-hover-bar">
+                            <span class="insta-handle">@Riccoskaffe</span>
+                            <span class="insta-link">Se opslag &rarr;</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.instagram.com/p/CQBHAeCB4em/" target="_blank" rel="noopener noreferrer"
+                        class="insta-card">
+                        <img src="img_/insta2.webp" alt="Riccos Kaffe Instagram opslag 2" class="insta-img">
+                        <div class="insta-hover-bar">
+                            <span class="insta-handle">@Riccoskaffe</span>
+                            <span class="insta-link">Se opslag &rarr;</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.instagram.com/p/BcKUyrxBSqf/" target="_blank" rel="noopener noreferrer"
+                        class="insta-card">
+                        <img src="img_/insta3.webp" alt="Riccos Kaffe Instagram opslag 3" class="insta-img">
+                        <div class="insta-hover-bar">
+                            <span class="insta-handle">@Riccoskaffe</span>
+                            <span class="insta-link">Se opslag &rarr;</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.instagram.com/p/CQyRdPmByzx/" target="_blank" rel="noopener noreferrer"
+                        class="insta-card">
+                        <img src="img_/insta4.webp" alt="Riccos Kaffe Instagram opslag 4" class="insta-img">
+                        <div class="insta-hover-bar">
+                            <span class="insta-handle">@Riccoskaffe</span>
+                            <span class="insta-link">Se opslag &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-info">
+                    <p>Hovedkontor Riccos Kaffe</p>
+                    <p>Amager landevej 119,</p>
+                    <p>2770 Kastrup</p>
+                    <p>Cvr: 38310976</p>
+                    <a href="https://www.findsmiley.dk/app/search?gruppe=ylRrrORGO-kk" target="_blank"
+                        rel="noopener noreferrer" class="footer-link footer-foedevare">Se fødevarekontrol</a>
+                </div>
+
+                <div class="footer-social">
+                    <p>Følg med via.</p>
+                    <a href="https://www.instagram.com/riccoskaffe/?hl=da" target="_blank" rel="noopener noreferrer"
+                        class="footer-link">Instagram</a>
+                    <a href="https://www.facebook.com/Riccos.Kaffebar/?locale=da_DK" target="_blank"
+                        rel="noopener noreferrer" class="footer-link">Facebook</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-brand">
+                    <img src="grafik_/logo_creme.svg" alt="Riccos Kaffe" class="footer-logo">
+                    <img src="grafik_/favicon.svg" alt="Riccos A-skilt" class="footer-sign">
+                </div>
+                <p class="footer-copy">&copy; 2026 Riccos</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
 </body>
 
 </html>
